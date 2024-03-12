@@ -11,17 +11,13 @@ import shop.mtcoding.bank.dto.user.UserReqDto;
 import shop.mtcoding.bank.dto.user.UserRespDto;
 import shop.mtcoding.bank.service.UserService;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 // 컨트롤러는 자신의 책임인 유효성 검사를 확실하게 해야한다.
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
 public class UserController {
     private final UserService userService;
-
+    // @Vaild를 써서 ReqDto의 유효성을 검사함.
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserReqDto.JoinReqDto joinReqDto, BindingResult bindingResult){
         UserRespDto.JoinRespDto joinRespDto = userService.회원가입(joinReqDto);
