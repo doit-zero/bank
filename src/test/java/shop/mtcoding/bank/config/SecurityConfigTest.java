@@ -29,10 +29,9 @@ public class SecurityConfigTest {
         ResultActions resultActions = mvc.perform(get("/api/s/hello"));
         String responseBody = resultActions.andReturn().getResponse().getContentAsString();
         int httpStatusCode = resultActions.andReturn().getResponse().getStatus();
-        System.out.println("test 결과 : " + responseBody );
-        System.out.println("test 결과 : " + httpStatusCode );
         //then
         assertThat(httpStatusCode).isEqualTo(401);
+
     }
 
     @Test
